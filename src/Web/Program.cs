@@ -1,9 +1,7 @@
-using System.Text;
-using EcommerceAPI.Infrastructure.Data;
-using EcommerceAPI.Web.Middleware;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RBACAPI.Infrastructure.Data;
+using RBACAPI.Infrastructure.Middleware;
+using RBACAPI.Web.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,20 +11,22 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddSwaggerGen(swagger =>
 {
     swagger.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Ecommerce API",
-        Description = "Full Ecommerce API"
+        Title = "Role Based Access Control API",
+        Description = "A full Role Based Access Controle API for performing administration activities, priviledges, and permissions",
+        Contact = new OpenApiContact { Name = "Samuel Izuagbe", Email = "izuagbesam@gmail.com" }
     });
     swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
+        Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
-        BearerFormat = "JWT",
+        BearerFormat = "Auth.JWT.AccessToken",
         In = ParameterLocation.Header
     });
     swagger.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -61,6 +61,7 @@ else
 
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
+app.UseMiddleware<JwtCookieAuthMiddleware>();
 app.UseMiddleware<ErrorMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -79,8 +80,6 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");
-
-app.UseExceptionHandler(options => { });
 
 app.Map("/", () => Results.Redirect("/api"));
 

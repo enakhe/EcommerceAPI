@@ -1,6 +1,6 @@
-﻿using EcommerceAPI.Domain.Entities;
+﻿//using RBACAPI.Domain.Entities;
 
-namespace EcommerceAPI.Application.Common.Models;
+namespace RBACAPI.Application.Common.Models;
 
 public class LookupDto
 {
@@ -12,8 +12,8 @@ public class LookupDto
     {
         public Mapping()
         {
-            CreateMap<TodoList, LookupDto>();
-            CreateMap<TodoItem, LookupDto>();
+            //CreateMap<TodoList, LookupDto>();
+            //CreateMap<TodoItem, LookupDto>();
         }
     }
 }

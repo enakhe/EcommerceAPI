@@ -1,9 +1,6 @@
-﻿using EcommerceAPI.Application.Common.Models;
-using EcommerceAPI.Application.User.Commands.Login;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using RBACAPI.Application.Common.Models;
 
-namespace EcommerceAPI.Application.Common.Interfaces;
+namespace RBACAPI.Application.Common.Interfaces;
 
 public interface IIdentityService
 {
@@ -17,5 +14,23 @@ public interface IIdentityService
 
     Task<Result> DeleteUserAsync(string userId);
 
-    Task<SignInResponse> SignInAsync(string email, string password, bool rememberMe);
+    Task<Result> SignInAsync(string email, string password);
+
+    Task<Result> SignUpAsync(string email, string password);
+
+    Task<Result> SendOTPAsync(string email);
+
+    Task<Result> VerifyEmailAsync(string email, string otp);
+
+    Task<Result> GetPasswordResetTokenAsync(string email);
+
+    Task<Result> ResetPasswordAsync(string email, string code, string password);
+
+    Task<Result> LogOut(string userId);
+
+    Task<Result> ChangePassword(string userId, string password, string confirmPassword);
+
+    Task<Result> ChangeEmail(string userId, string email);
+
+    string GetUserId();
 }

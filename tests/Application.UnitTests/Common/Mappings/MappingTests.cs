@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using AutoMapper;
-using EcommerceAPI.Application.Common.Interfaces;
-using EcommerceAPI.Application.Common.Models;
-using EcommerceAPI.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using EcommerceAPI.Application.TodoLists.Queries.GetTodos;
-using EcommerceAPI.Domain.Entities;
+//using RBACAPI.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+//using RBACAPI.Application.TodoLists.Queries.GetTodos;
+//using RBACAPI.Domain.Entities;
 using NUnit.Framework;
+using RBACAPI.Application.Common.Interfaces;
 
-namespace EcommerceAPI.Application.UnitTests.Common.Mappings;
+namespace RBACAPI.Application.UnitTests.Common.Mappings;
 
 public class MappingTests
 {
@@ -17,7 +16,7 @@ public class MappingTests
 
     public MappingTests()
     {
-        _configuration = new MapperConfiguration(config => 
+        _configuration = new MapperConfiguration(config =>
             config.AddMaps(Assembly.GetAssembly(typeof(IApplicationDbContext))));
 
         _mapper = _configuration.CreateMapper();
@@ -29,12 +28,12 @@ public class MappingTests
         _configuration.AssertConfigurationIsValid();
     }
 
-    [Test]
-    [TestCase(typeof(TodoList), typeof(TodoListDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
-    [TestCase(typeof(TodoList), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemBriefDto))]
+    //[Test]
+    //[TestCase(typeof(TodoList), typeof(TodoListDto))]
+    //[TestCase(typeof(TodoItem), typeof(TodoItemDto))]
+    //[TestCase(typeof(TodoList), typeof(LookupDto))]
+    //[TestCase(typeof(TodoItem), typeof(LookupDto))]
+    //[TestCase(typeof(TodoItem), typeof(TodoItemBriefDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);

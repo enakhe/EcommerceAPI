@@ -1,13 +1,7 @@
 ﻿#nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EcommerceAPI.Application.User.Commands.Login;
-public class SignInResponse
+namespace RBACAPI.Application.OAuth.Commands.GoogleSignIn;
+public class GoogleSignInResponse
 {
     public bool Succeeded { get; set; }
     public string Token { get; set; }
@@ -17,4 +11,3 @@ public class SignInResponse
     public string PhoneNumber { get; set; }
     public bool EmailConfirmed { get; set; }
 }
-

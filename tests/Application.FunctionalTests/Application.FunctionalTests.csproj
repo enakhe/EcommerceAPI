@@ -1,9 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RootNamespace>EcommerceAPI.Application.FunctionalTests</RootNamespace>
-        <AssemblyName>EcommerceAPI.Application.FunctionalTests</AssemblyName>
+        <RootNamespace>RBACAPI.Application.FunctionalTests</RootNamespace>
+        <AssemblyName>RBACAPI.Application.FunctionalTests</AssemblyName>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="TodoItems\**" />
+      <Compile Remove="TodoLists\**" />
+      <EmbeddedResource Remove="TodoItems\**" />
+      <EmbeddedResource Remove="TodoLists\**" />
+      <None Remove="TodoItems\**" />
+      <None Remove="TodoLists\**" />
+    </ItemGroup>
 
     <ItemGroup>
       <None Remove="appsettings.json" />
@@ -32,6 +41,7 @@
         <PackageReference Include="Moq" />
         <PackageReference Include="Respawn" />
         <PackageReference Include="Testcontainers.MsSql" />
+        <PackageReference Include="xunit" />
     </ItemGroup>
     
     <ItemGroup>

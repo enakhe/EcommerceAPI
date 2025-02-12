@@ -1,17 +1,17 @@
-﻿using EcommerceAPI.Domain.Constants;
-using EcommerceAPI.Infrastructure.Data;
-using EcommerceAPI.Infrastructure.Identity;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using RBACAPI.Domain.Constants;
+using RBACAPI.Infrastructure.Data;
+using RBACAPI.Infrastructure.Identity;
 
-namespace EcommerceAPI.Application.FunctionalTests;
+namespace RBACAPI.Application.FunctionalTests;
 
 [SetUpFixture]
 public partial class Testing
 {
-    private static ITestDatabase _database;
+    private static ITestDatabase? _database;
     private static CustomWebApplicationFactory _factory = null!;
     private static IServiceScopeFactory _scopeFactory = null!;
     private static string? _userId;
@@ -97,9 +97,9 @@ public partial class Testing
     {
         try
         {
-            await _database.ResetAsync();
+            await _database!.ResetAsync();
         }
-        catch (Exception) 
+        catch (Exception)
         {
         }
 
@@ -140,7 +140,7 @@ public partial class Testing
     [OneTimeTearDown]
     public async Task RunAfterAnyTests()
     {
-        await _database.DisposeAsync();
+        await _database!.DisposeAsync();
         await _factory.DisposeAsync();
     }
 }

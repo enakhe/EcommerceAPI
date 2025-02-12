@@ -1,11 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>EcommerceAPI.Infrastructure</RootNamespace>
-    <AssemblyName>EcommerceAPI.Infrastructure</AssemblyName>
+    <RootNamespace>RBACAPI.Infrastructure</RootNamespace>
+    <AssemblyName>RBACAPI.Infrastructure</AssemblyName>
+    <UserSecretsId>de1a33ac-5534-40e7-91d6-58fce5ef15a3</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Configurations\TodoItemConfiguration.cs" />
+    <Compile Remove="Data\Configurations\TodoListConfiguration.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
@@ -19,6 +28,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Configurations\" />
   </ItemGroup>
 
 </Project>

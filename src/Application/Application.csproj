@@ -1,9 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>EcommerceAPI.Application</RootNamespace>
-    <AssemblyName>EcommerceAPI.Application</AssemblyName>
+    <RootNamespace>RBACAPI.Application</RootNamespace>
+    <AssemblyName>RBACAPI.Application</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TodoItems\**" />
+    <Compile Remove="TodoLists\**" />
+    <Compile Remove="WeatherForecasts\**" />
+    <EmbeddedResource Remove="TodoItems\**" />
+    <EmbeddedResource Remove="TodoLists\**" />
+    <EmbeddedResource Remove="WeatherForecasts\**" />
+    <None Remove="TodoItems\**" />
+    <None Remove="TodoLists\**" />
+    <None Remove="WeatherForecasts\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" />

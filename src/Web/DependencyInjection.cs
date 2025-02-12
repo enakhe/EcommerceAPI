@@ -1,11 +1,10 @@
 ﻿using Azure.Identity;
-using EcommerceAPI.Application.Common.Interfaces;
-using EcommerceAPI.Infrastructure.Data;
-using EcommerceAPI.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using RBACAPI.Application.Common.Interfaces;
+using RBACAPI.Infrastructure.Data;
+using RBACAPI.Web.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -34,10 +33,10 @@ public static class DependencyInjection
 
         services.AddOpenApiDocument((configure, sp) =>
         {
-            configure.Title = "EcommerceAPI API";
+            configure.Title = "RBACAPI API";
 
             // Add JWT
-            configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+            configure.AddSecurity("Auth.JWT.AccessToken", Enumerable.Empty<string>(), new OpenApiSecurityScheme
             {
                 Type = OpenApiSecuritySchemeType.ApiKey,
                 Name = "Authorization",
@@ -45,7 +44,7 @@ public static class DependencyInjection
                 Description = "Type into the textbox: Bearer {your JWT token}."
             });
 
-            configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+            configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("Auth.JWT.AccessToken"));
         });
 
         return services;

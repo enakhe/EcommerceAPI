@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EcommerceAPI.Infrastructure.Identity;
-using Microsoft.AspNetCore.Http;
+﻿using RBACAPI.Infrastructure.Identity;
 
-namespace EcommerceAPI.Infrastructure.Interface;
+namespace RBACAPI.Infrastructure.Interface;
 public interface IJWTService
 {
-    string GenerateJWTToken(HttpContext context, ApplicationUser user);
+    string GenerateToken(ApplicationUser user, string tokenName, DateTimeOffset validTime);
+    string? ValidateJWTToken(string token);
+    Task<string?> RefreshTokenAsync(string refreshToken);
 }

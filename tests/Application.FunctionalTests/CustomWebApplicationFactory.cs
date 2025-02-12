@@ -1,6 +1,4 @@
 ﻿using System.Data.Common;
-using EcommerceAPI.Application.Common.Interfaces;
-using EcommerceAPI.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -8,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using RBACAPI.Application.Common.Interfaces;
+using RBACAPI.Infrastructure.Data;
 
-namespace EcommerceAPI.Application.FunctionalTests;
+namespace RBACAPI.Application.FunctionalTests;
 
 using static Testing;
 

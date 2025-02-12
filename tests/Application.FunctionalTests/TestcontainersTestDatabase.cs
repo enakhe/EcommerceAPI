@@ -1,11 +1,11 @@
 ﻿using System.Data.Common;
-using EcommerceAPI.Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using RBACAPI.Infrastructure.Data;
 using Respawn;
 using Testcontainers.MsSql;
 
-namespace EcommerceAPI.Application.FunctionalTests;
+namespace RBACAPI.Application.FunctionalTests;
 
 public class TestcontainersTestDatabase : ITestDatabase
 {

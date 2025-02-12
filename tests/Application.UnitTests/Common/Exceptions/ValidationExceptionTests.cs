@@ -1,9 +1,9 @@
-﻿using EcommerceAPI.Application.Common.Exceptions;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;
+using RBACAPI.Application.Common.Exceptions;
 
-namespace EcommerceAPI.Application.UnitTests.Common.Exceptions;
+namespace RBACAPI.Application.UnitTests.Common.Exceptions;
 
 public class ValidationExceptionTests
 {

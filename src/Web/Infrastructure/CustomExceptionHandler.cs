@@ -1,8 +1,8 @@
-﻿using EcommerceAPI.Application.Common.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using RBACAPI.Application.Common.Exceptions;
 
-namespace EcommerceAPI.Web.Infrastructure;
+namespace RBACAPI.Web.Infrastructure;
 
 public class CustomExceptionHandler : IExceptionHandler
 {
